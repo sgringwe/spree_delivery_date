@@ -1,13 +1,19 @@
-SpreeDeliveryDate
+Spree Delivery Date
 =================
 
-Introduction goes here.
+Requires user to enter a delivery date that is tomorrow or later during checkout (delivery section).
+
+TODO
+-------
+Add delivery date to order details
+Allow admin to filter orders by delivery date
+Allow admin to sort orders by delivery date
 
 
-Example
+Installing
 =======
 
-Example goes here.
+TODO: How?
 
 Testing
 -------
