@@ -1,6 +1,6 @@
-<div class="delivery-date-filter field">
+<div class="date-range-filter field">
   <%= label_tag nil, t(:delivery_date) %>
-  <div class="delivery-date-fields">
+  <div class="date-range-fields">
     <%= f.text_field :delivery_date_gt, :class => 'datepicker datepicker-from', :value => params[:q][:delivery_date_gt], :placeholder => t(:start) %>
 
     <span class="range-divider">
