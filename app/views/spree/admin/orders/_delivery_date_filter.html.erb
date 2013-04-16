@@ -1,0 +1,12 @@
+<div class="date-range-filter field">
+  <%= label_tag nil, t(:delivery_date) %>
+  <div class="date-range-fields">
+    <%= f.text_field :delivery_date_gt, :class => 'datepicker datepicker-from', :value => params[:q][:delivery_date_gt], :placeholder => t(:start) %>
+
+    <span class="range-divider">
+      <i class="icon-arrow-right"></i>
+    </span>
+
+    <%= f.text_field :delivery_date_lt, :class => 'datepicker datepicker-to', :value => params[:q][:delivery_date_lt], :placeholder => t(:stop) %>
+  </div>
+</div>
