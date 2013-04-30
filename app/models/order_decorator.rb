@@ -15,7 +15,7 @@ Spree::Order.class_eval do
       end
 
       cutoff = Time.now.change(:hour => 16, :minute => 30).in_time_zone("Eastern Time (US & Canada)")
-      puts cuttoff
+      puts cutoff
       if cutoff.past?
         # It is past 4:30. Order must be > Date.tomorrow
         if !(delivery_date > Date.tomorrow)
