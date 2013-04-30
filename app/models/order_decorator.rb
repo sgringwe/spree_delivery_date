@@ -14,7 +14,7 @@ Spree::Order.class_eval do
         errors.add(:delivery_date, "cannot be a Sunday or Monday.")
       end
 
-      cutoff = Time.now.change(:hour => 16, :minute => 30).in_time_zone("Eastern Time (US & Canada)")
+      cutoff = Time.now.change(:hour => 16, :min => 34).in_time_zone("Eastern Time (US & Canada)")
       puts cutoff
       if cutoff.past?
         # It is past 4:30. Order must be > Date.tomorrow
