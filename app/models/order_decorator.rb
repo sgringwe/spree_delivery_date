@@ -1,5 +1,6 @@
 Spree::Order.class_eval do
   require 'date'
+  require 'spree/order/checkout'
 
   attr_accessible :delivery_date
 
