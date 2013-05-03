@@ -40,7 +40,7 @@ Spree::Order.class_eval do
 
     if error_occurred
       puts 'going to state delivery'
-      go_to_state :delivery
+      transition :to => :delivery
       puts state
     end
   end
