@@ -4,11 +4,14 @@ Spree::Order.class_eval do
   attr_accessible :delivery_date
 
   validate :delivery_date, :presence => true, :allow_nil => false
-  validate :delivery_date_specific_validation
+  validate :delivery_date_specific_validation, :if => :validate_delivery_date? 
 
   def delivery_date_specific_validation
     # Ensure that a delivery date is set. We don't want to run these validations until it is
     if !delivery_date.blank?
+      puts '00---------------------------'
+      puts 'running validation'
+      puts '------------------------------'
       # Check if delivery date is sunday or monday, which are not allowed
       if [0, 1, 7].include?(delivery_date.wday)
         errors.add(:delivery_date, "cannot be a Sunday or Monday.")
@@ -27,5 +30,10 @@ Spree::Order.class_eval do
         end
       end
     end
+  end
+
+  # Only validate the delivery date if state is equal to or past shipping
+  def validate_delivery_date?
+    return !(state == 'cart' or state == 'address')
   end
 end
