@@ -22,7 +22,7 @@ Spree::Order.class_eval do
         error_occurred = true
       end
 
-      cutoff = Time.now.change(:hour => 17, :min => 00).in_time_zone("Eastern Time (US & Canada)")
+      cutoff = Time.now.change(:hour => 17, :min => 20).in_time_zone("Eastern Time (US & Canada)")
       puts cutoff
       if cutoff.past?
         # It is past 5:00. Order must be > Date.tomorrow
@@ -39,12 +39,8 @@ Spree::Order.class_eval do
     end
 
     if error_occurred
-      self.delivery_date = nil
-      self.state = :delivery
+      self.state = 'delivery'
       save
-      # puts 'going to state delivery'
-      # transition :to => :delivery
-      # puts state
     end
   end
 end
