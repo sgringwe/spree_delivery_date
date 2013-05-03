@@ -39,9 +39,10 @@ Spree::Order.class_eval do
     end
 
     if error_occurred
-      puts 'going to state delivery'
-      transition :to => :delivery
-      puts state
+      update_attributes(:delivery_date, nil)
+      # puts 'going to state delivery'
+      # transition :to => :delivery
+      # puts state
     end
   end
 end
