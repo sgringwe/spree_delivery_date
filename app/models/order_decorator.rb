@@ -11,6 +11,7 @@ Spree::Order.class_eval do
     if !delivery_date.blank?
       puts '00---------------------------'
       puts 'running validation'
+      puts state
       puts '------------------------------'
       # Check if delivery date is sunday or monday, which are not allowed
       if [0, 1, 7].include?(delivery_date.wday)
