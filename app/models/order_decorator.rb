@@ -10,8 +10,8 @@ Spree::Order.class_eval do
   def delivery_date_specific_validation
     error_occurred = false
 
-    # Ensure that a delivery date is set. We don't want to run these validations until it is
-    if !delivery_date.blank?
+    # Only run the delivery date validations if we are on delivery step or after
+    if ['payment', 'confirm', 'complete'].include?(state)
       puts '00---------------------------'
       puts 'running validation'
       puts state
@@ -39,6 +39,7 @@ Spree::Order.class_eval do
     end
 
     if error_occurred
+      self.delivery_date = nil
       self.state = 'delivery'
       save
     end
