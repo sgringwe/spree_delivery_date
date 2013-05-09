@@ -13,12 +13,13 @@ Spree::Order.class_eval do
     # Ensure that a delivery date is set. We don't want to run these validations until it is
     # Only run the delivery date validations if we are on that step or
     if !delivery_date.blank? && ['payment', 'confirm', 'complete'].include?(state)
-      puts '00---------------------------'
+      puts '------------------------------'
       puts 'running validation'
       puts state
       puts '------------------------------'
       # Check if delivery date is sunday or monday, which are not allowed
       if [0, 1, 7].include?(delivery_date.wday)
+        puts 'error 1'
         errors.add(:delivery_date, "cannot be a Sunday or Monday.")
         error_occurred = true
       end
@@ -28,11 +29,13 @@ Spree::Order.class_eval do
       if cutoff.past?
         # It is past 5:00. Order must be > Date.tomorrow
         if !(delivery_date > Date.tomorrow)
+          puts 'error 2'
           errors.add(:delivery_date, ": It is too late for delivery tomorrow. Please specify a date after tomorrow.")
           error_occurred = true
         end
       else
         if !(delivery_date > Date.today)
+          puts 'error 3'
           errors.add(:delivery_date, ": It is too late for delivery today. Please specify a date tomorrow or later.")
           error_occurred = true
         end
@@ -40,6 +43,7 @@ Spree::Order.class_eval do
     end
 
     if error_occurred
+      puts 'an error did occur'
       self.delivery_date = nil
       self.state = 'delivery'
       save
