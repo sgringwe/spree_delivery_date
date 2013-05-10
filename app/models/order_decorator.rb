@@ -18,11 +18,9 @@ Spree::Order.class_eval do
       end
 
       if cutoff.past? && !(delivery_date > Date.tomorrow)
-          errors.add(:delivery_date, ": It is too late for delivery tomorrow. Please specify a date after tomorrow.")
-        end
+        errors.add(:delivery_date, ": It is too late for delivery tomorrow. Please specify a date after tomorrow.")
       elsif !cutoff.past? && !(delivery_date > Date.today)
-          errors.add(:delivery_date, ": It is too late for delivery today. Please specify a date tomorrow or later.")
-        end
+        errors.add(:delivery_date, ": It is too late for delivery today. Please specify a date tomorrow or later.")
       end
     end
   end
