@@ -1,2 +1,6 @@
 <dt><%= t(:delivery_date) %>:</dt>
-<dd id='delivery_date'><%= @order.delivery_date %></dd>
+<% if @order.delivery_date != nil %>
+  <dd id='delivery_date'><%= @order.delivery_date %></dd>
+<% else %>
+  <dd id='delivery_date'>Unknown</dd>
+<% end %>
