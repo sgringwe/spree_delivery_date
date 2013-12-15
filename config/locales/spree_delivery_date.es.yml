@@ -11,9 +11,6 @@ es:
               nor_monday_sunday: no puede ser Domingo o Lunes
               too_late_tomorrow: es muy tarde para entregar mañana. Elige una fecha posterior.
               too_late_today: es muy tarde para entregar hoy.  Elige una fecha posterior.
-  spree:
-    checkout:
-      delivery:
-        spree_delivery_date:
-          title: Fecha de entrega
+  spree_delivery_date:
+    title: Fecha de entrega
   delivery_date: Fecha de entrega
