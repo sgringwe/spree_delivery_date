@@ -1,4 +1,8 @@
-<p id="delivery_date">
-  <%= form.label :delivery_date, "Delivery Date" %><br />
-  <%= form.date_select :delivery_date %>
-</p>
+<br />
+<div id="delivery_date">
+  <legend><%= t('.spree_delivery_time.title') %></legend>
+  <div class="field">
+    <%= form.label :delivery_date %><br />
+    <%= form.date_select :delivery_date %>
+  </div>
+</div>
