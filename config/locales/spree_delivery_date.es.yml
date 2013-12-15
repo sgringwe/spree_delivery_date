@@ -1,0 +1,19 @@
+es:
+  activerecord:
+    attributes:
+      spree/order:
+        delivery_date: Fecha de entrega
+    errors:
+      models:
+        spree/order:
+          attributes:
+            delivery_date:
+              nor_monday_sunday: no puede ser Domingo o Lunes
+              too_late_tomorrow: es muy tarde para entregar mañana. Elige una fecha posterior.
+              too_late_today: es muy tarde para entregar hoy.  Elige una fecha posterior.
+  spree:
+    checkout:
+      delivery:
+        spree_delivery_time:
+          title: Fecha de entrega
+  delivery_date: Fecha de entrega
