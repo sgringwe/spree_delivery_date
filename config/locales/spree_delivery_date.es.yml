@@ -14,6 +14,6 @@ es:
   spree:
     checkout:
       delivery:
-        spree_delivery_time:
+        spree_delivery_date:
           title: Fecha de entrega
   delivery_date: Fecha de entrega
