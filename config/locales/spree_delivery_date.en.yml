@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    attributes:
+      spree/order:
+        delivery_date: Delivery Date
+    errors:
+      models:
+        spree/order:
+          attributes:
+            delivery_date:
+              nor_monday_sunday: cannot be a Sunday or Monday
+              too_late_tomorrow: is too late for delivery tomorrow. Please specify a date after tomorrow.
+              too_late_today: is too late for delivery today. Please specify a date tomorrow or later.
+  spree_delivery_date:
+    title: Delivery Date
+  delivery_date: Delivery Date
